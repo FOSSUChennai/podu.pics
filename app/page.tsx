@@ -1,15 +1,15 @@
 'use client';
 
 import Dither from "@/components/Dither";
-import { Image, Star, Check, Copy, X } from "@phosphor-icons/react";
+import { Image, Star, Check, Copy } from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Home() {
   const [dragActive, setDragActive] = useState(false);
   const [starCount, setStarCount] = useState<number | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,6 @@ export default function Home() {
 
   const uploadFile = async (file: File) => {
     setUploading(true);
-    setError(null);
     setUploadedUrl(null);
 
     try {
@@ -62,7 +61,7 @@ export default function Home() {
 
       setUploadedUrl(metadata.url);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Upload failed. Please try again.');
+      toast.error(err instanceof Error ? err.message : 'Upload failed. Please try again.');
     } finally {
       setUploading(false);
     }
@@ -95,7 +94,6 @@ export default function Home() {
 
   const resetUpload = () => {
     setUploadedUrl(null);
-    setError(null);
     setCopied(false);
   };
 
@@ -235,13 +233,6 @@ export default function Home() {
                   )}
                 </div>
               </label>
-
-              {error && (
-                <div className="mt-4 flex items-center gap-2 px-4 py-3 bg-red-500/20 border border-red-500/30 rounded-xl">
-                  <X size={20} className="text-red-400" />
-                  <p className="text-red-400 text-sm">{error}</p>
-                </div>
-              )}
             </form>
           )}
         </div>
@@ -253,6 +244,50 @@ export default function Home() {
           Developed with love by Justin and Hari
         </p>
       </footer>
+
+      {/* Toast Notifications with Frosted Glass Styling */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            borderRadius: '16px',
+            color: '#ffffff',
+            padding: '16px',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+          },
+          error: {
+            style: {
+              background: 'rgba(239, 68, 68, 0.1)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              color: '#fca5a5',
+            },
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#ffffff',
+            },
+          },
+          success: {
+            style: {
+              background: 'rgba(34, 197, 94, 0.1)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(34, 197, 94, 0.3)',
+              color: '#86efac',
+            },
+            iconTheme: {
+              primary: '#22c55e',
+              secondary: '#ffffff',
+            },
+          },
+        }}
+      />
     </div>
   );
 }

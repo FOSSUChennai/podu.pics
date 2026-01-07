@@ -137,7 +137,7 @@ export default function Home() {
         <div className="w-[90%] max-w-2xl bg-white/10 backdrop-blur-xl rounded-[32px] shadow-2xl p-8 md:p-4 border border-white/20 pointer-events-auto">
 
           {uploadedUrl ? (
-            <div className="flex flex-col items-center gap-6 min-h-[200px] md:min-h-[300px] justify-center p-8">
+            <div className="flex flex-col items-center gap-6 min-h-[200px] md:min-h-[300px] justify-center ">
               <div className="flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full">
                 <Check size={32} weight="bold" className="text-green-400" />
               </div>
@@ -147,26 +147,26 @@ export default function Home() {
                 <p className="text-white/70 text-sm">Your image is ready to share</p>
               </div>
 
-              <div className="w-full max-w-md bg-black/30 rounded-xl p-4 flex items-center gap-3">
+              <div className="w-full max-w-md bg-black/30 rounded-xl p-2 md:p-4 flex items-center gap-2">
                 <input
                   type="text"
                   value={uploadedUrl}
                   readOnly
-                  className="flex-1 bg-transparent text-white text-sm outline-none"
+                  className="flex-1 bg-transparent text-white text-sm outline-none truncate"
                 />
                 <button
                   onClick={copyToClipboard}
-                  className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200"
+                  className="flex items-center gap-2 px-3 md:px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 shrink-0"
                 >
                   {copied ? (
                     <>
                       <Check size={20} className="text-green-400" />
-                      <span className="text-green-400 text-sm font-medium">Copied!</span>
+                      <span className="hidden md:inline text-green-400 text-sm font-medium">Copied!</span>
                     </>
                   ) : (
                     <>
                       <Copy size={20} className="text-white" />
-                      <span className="text-white text-sm font-medium">Copy</span>
+                      <span className="hidden md:inline text-white text-sm font-medium">Copy</span>
                     </>
                   )}
                 </button>
@@ -200,7 +200,7 @@ export default function Home() {
                 htmlFor="file-upload"
                 className={`
                   flex flex-col items-center justify-center
-                  min-h-[200px] md:min-h-[300px] p-8 md:p-12
+                  min-h-[200px] md:min-h-[300px] md:p-12
                   border-4 border-dashed rounded-2xl
                   transition-all duration-200
                   ${uploading ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}

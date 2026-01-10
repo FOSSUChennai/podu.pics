@@ -5,6 +5,7 @@ import { Image, Star, Check, Copy } from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Home() {
   const [dragActive, setDragActive] = useState(false);
@@ -100,6 +101,11 @@ export default function Home() {
 
   return (
     <div className="relative w-full h-screen bg-black">
+      <Script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="58061e7d-18c6-42e2-9d46-f1698657b7a9"
+      />
       <Dither
         waveColor={[0.59, 0.83, 0.37]}
         disableAnimation={false}

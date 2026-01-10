@@ -193,7 +193,7 @@ export default function Home() {
         <div className={`w-full max-w-7xl grid grid-cols-1 ${history.length > 0 && !uploadedUrl && !uploading ? 'lg:grid-cols-2' : ''} gap-8 items-start justify-center`}>
           {/* Upload Section */}
           <div className="flex justify-center lg:justify-center">
-            <div className="w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-[32px] shadow-2xl p-4 border border-white/20 pointer-events-auto lg:h-[480px] flex flex-col justify-center">
+            <div className="w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-[32px] shadow-2xl p-4 border border-white/20 pointer-events-auto lg:h-[450px] flex flex-col justify-center">
               {uploadedUrl ? (
                 <div className="flex flex-col items-center gap-6 justify-center">
                   <div className="flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full">
@@ -301,7 +301,7 @@ export default function Home() {
           {/* Recent Uploads Section */}
           {history.length > 0 && !uploadedUrl && !uploading && (
             <div className="flex justify-center">
-              <div className="w-full max-w-2xl bg-white/5 backdrop-blur-md rounded-3xl p-6 border border-white/10 pointer-events-auto transition-all animate-in fade-in slide-in-from-right-4 lg:slide-in-from-right-8 duration-500 lg:h-[480px] flex flex-col">
+              <div className="w-full max-w-2xl bg-white/5 backdrop-blur-md rounded-3xl p-6 border border-white/10 pointer-events-auto transition-all animate-in fade-in slide-in-from-right-4 lg:slide-in-from-right-8 duration-500 lg:h-[450px] flex flex-col">
                 <div className="flex items-center justify-between mb-6 px-2 shrink-0">
                   <div className="flex items-center gap-2 text-white/80">
                     <Clock size={20} />
@@ -373,7 +373,7 @@ export default function Home() {
       </footer>
 
       {/* Toast Notifications with Frosted Glass Styling */}
-      <Toaster
+      < Toaster
         position="top-center"
         toastOptions={{
           duration: 4000,
@@ -413,8 +413,9 @@ export default function Home() {
               secondary: '#ffffff',
             },
           },
-        }}
+        }
+        }
       />
-    </div>
+    </div >
   );
 }

@@ -1,68 +1,86 @@
-# Podu.pics
+<p align="center">
+<img src = 'public/podu-icon.svg' alt='logo' width=200>
+<br>
+<h1><strong>podu.pics -- An Open-Source ImgBB alternative</strong>  </h1>
+<br/>
 
-**Fast, open-source image hosting with a stunning experience.**
+[![license](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)](https://github.com/FOSSUChennai/podu.pics/blob/main/LICENSE) [![built with next.js](https://img.shields.io/badge/built%20with-next.js-black?style=flat-square)](https://nextjs.org/) [![typescript](https://img.shields.io/badge/typescript-007ACC?style=flat-square)](https://www.typescriptlang.org/) ![Github Stars](https://img.shields.io/github/stars/FOSSUChennai/podu.pics)
 
-Podu.pics is a developer-focused, privacy-first image hosting utility built with Next.js and Cloudflare R2. It turns your images into shareable links instantly, without the bloat of traditional hosting platforms.
+</p>
 
-![Podu.pics Preview](public/preview.png)
+<div align = 'center'>
+<img src = 'public/demo.gif' alt='demo' width=700>
+</div>
 
-## Features
+## What it is?
+Ever heard of an image host that lets you upload images, generate shareable links in a jiffy, and is completely free and open source?
 
-- **Instant Uploads**: Optimized upload flow using presigned URLs direct to the edge.
-- **Dither Visuals**: A unique, interactive background experience powered by Three.js and custom shaders.
-- **Privacy First**: Anonymous uploads, zero tracking, and no database requirements.
-- **Edge Storage**: Powered by Cloudflare R2 for zero-egress fees and global speed.
-- **Short Links**: Clean, URL-friendly IDs generated via NanoID.
+No? That's because this is the first one.
 
-## Architecture
+[podu.pics](https://podu.pics) exists because most "free" image hosts aren't really free. 
 
-Podu.pics is built for maximum speed and minimum cost:
-- **Client**: Direct-to-Edge uploads via S3 Presigned URLs.
-- **Serverless**: Dynamic image serving through Next.js App Router.
-- **Storage**: Cloudflare R2 (S3-compatible, zero-egress storage).
+(Because remember folks, in FOSS, ***FREE AS IN FREEDOM!***)
 
 ## Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Visuals**: [Three.js](https://threejs.org/) & [React Three Fiber](https://r3f.docs.pmnd.rs/)
-- **Icons**: [Phosphor Icons](https://phosphoricons.com/)
-- **Storage**: [Cloudflare R2](https://www.cloudflare.com/products/r2/)
-- **ID Generation**: [NanoID](https://github.com/ai/nanoid)
+### **These are the awesome FOSS tools used in building this awesome project!**
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="Three.js" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/AWS_SDK-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS SDK" />
+</p>
+
+Built with **Next.js**, **React**, and **TypeScript**, styled with **Tailwind CSS**.
+
+The animated background is powered by **Three.js** (via React Three Fiber, with Postprocessing for the shader effects). Images are stored in **Cloudflare R2** using the **AWS SDK**, with **NanoID** generating unique file identifiers. Icons from **Phosphor** and **Lucide**; **ESLint** keeps the codebase consistent.
 
 ## Getting Started
 
-### Prerequisites
-
-You will need a Cloudflare Account with an R2 bucket configured.
-
-### Environment Setup
-
-Copy `.env.example` to `.env.local` and fill in your Cloudflare credentials:
+Clone the repo and install dependencies:
 
 ```bash
-R2_ACCOUNT_ID=your_account_id
-R2_ACCESS_KEY_ID=your_access_key
-R2_SECRET_ACCESS_KEY=your_secret_key
-R2_BUCKET_NAME=your_bucket_name
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-```
-
-### Run Locally
-
-```bash
+git clone https://github.com/FOSSUChennai/podu.pics.git
+cd podu.pics
 npm install
-npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the result.
+Copy the example environment file and fill in your own storage credentials:
+
+```bash
+cp .env.example .env
+```
+
+You'll need a Cloudflare R2 bucket (S3-compatible) — the free tier is enough for local development. You'll need your account ID, access key ID, secret access key, and bucket name from your Cloudflare dashboard.
+
+Then run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Contributing
 
-Contributions are welcome! Please check our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Check open [issues](https://github.com/FOSSUChennai/podu.pics/issues) for something to pick up, or open a new one to discuss a feature or bug before submitting a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License — see [LICENSE](https://github.com/FOSSUChennai/podu.pics/blob/main/LICENSE) for details.
 
-Developed with care by [Justin](https://github.com/JustinSane) and [Hari](https://github.com/Hari-Haran-Dev).
+---
+***Developed with love by [Justin](https://github.com/JustinBenito) and [Hari](https://github.com/nammahari) ! <3***

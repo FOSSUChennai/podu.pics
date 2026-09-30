@@ -76,7 +76,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Contributing
 
-Contributions are welcome! Check open [issues](https://github.com/FOSSUChennai/podu.pics/issues) for something to pick up, or open a new one to discuss a feature or bug before submitting a PR.
+Contributions are welcome! Check open [issues](https://github.com/FOSSUChennai/podu.pics/issues) for something to pick up, or open a new one to discuss a feature or bug before submitting a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 

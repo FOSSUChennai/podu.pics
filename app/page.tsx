@@ -151,7 +151,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative w-full h-screen bg-black">
+    <div className="relative w-full h-dvh bg-black">
       <Script
         defer
         src="https://cloud.umami.is/script.js"
@@ -174,7 +174,7 @@ export default function Home() {
         href="https://github.com/FOSSUChennai/podu.pics"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-6 right-6 z-10 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-xl border-[1px] border-white/30 rounded-full text-white font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+        className="absolute top-4 right-4 md:top-6 md:right-6 z-10 px-3 py-2 text-sm md:px-6 md:py-3 md:text-base bg-white/10 hover:bg-white/20 backdrop-blur-xl border-[1px] border-white/30 rounded-full text-white font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
       >
         <Star size={20} weight="fill" />
         Contribute
@@ -185,15 +185,16 @@ export default function Home() {
         )}
       </a>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-12 p-8 pointer-events-none">
-        <h1 className="font-[family-name:var(--font-instrument-serif)] text-8xl md:text-[256px] text-white mb-4">
+      <div className="absolute inset-0 overflow-y-auto pointer-events-none">
+      <div className="min-h-full flex flex-col items-center gap-6 md:gap-12 p-4 pt-16 md:p-8">
+        <h1 className="mt-auto font-[family-name:var(--font-instrument-serif)] text-[clamp(3rem,min(20vw,26vh),256px)] leading-none text-white md:mb-4">
           Podu.pics
         </h1>
 
         <div className={`w-full max-w-7xl grid grid-cols-1 ${history.length > 0 && !uploadedUrl && !uploading ? 'lg:grid-cols-2' : ''} gap-8 items-start justify-center`}>
           {/* Upload Section */}
           <div className="flex justify-center lg:justify-center">
-            <div className="w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-[32px] shadow-2xl p-4 border border-white/20 pointer-events-auto lg:h-[450px] flex flex-col justify-center">
+            <div className="w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-[32px] shadow-2xl p-4 border border-white/20 pointer-events-auto lg:h-[clamp(240px,40vh,450px)] flex flex-col justify-center">
               {uploadedUrl ? (
                 <div className="flex flex-col items-center gap-6 justify-center">
                   <div className="flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full">
@@ -301,7 +302,7 @@ export default function Home() {
           {/* Recent Uploads Section */}
           {history.length > 0 && !uploadedUrl && !uploading && (
             <div className="flex justify-center">
-              <div className="w-full max-w-2xl bg-white/5 backdrop-blur-md rounded-3xl p-6 border border-white/10 pointer-events-auto transition-all animate-in fade-in slide-in-from-right-4 lg:slide-in-from-right-8 duration-500 lg:h-[450px] flex flex-col">
+              <div className="w-full max-w-2xl bg-white/5 backdrop-blur-md rounded-3xl p-6 border border-white/10 pointer-events-auto transition-all animate-in fade-in slide-in-from-right-4 lg:slide-in-from-right-8 duration-500 lg:h-[clamp(240px,40vh,450px)] flex flex-col">
                 <div className="flex items-center justify-between mb-6 px-2 shrink-0">
                   <div className="flex items-center gap-2 text-white/80">
                     <Clock size={20} />
@@ -361,16 +362,17 @@ export default function Home() {
             </div>
           )}
         </div>
-      </div>
 
-      {/* Footer */}
-      <footer className="absolute gap-0 bottom-6 left-0 right-0 text-center">
-        <p className="text-white/60 font-bold text-md">
-          Developed with love by Justin and Hari
-          <br />
-          <Link href="/foss" className="text-white/60 underline font-light italic text-md hover:text-white/80 transition-colors">Using awesome <span className="font-bold">FOSS</span> tools</Link>
-        </p>
-      </footer>
+        {/* Footer */}
+        <footer className="mt-auto gap-0 text-center pointer-events-auto">
+          <p className="text-white/60 font-bold text-md">
+            Developed with love by Justin and Hari
+            <br />
+            <Link href="/foss" className="text-white/60 underline font-light italic text-md hover:text-white/80 transition-colors">Using awesome <span className="font-bold">FOSS</span> tools</Link>
+          </p>
+        </footer>
+      </div>
+      </div>
 
       {/* Toast Notifications with Frosted Glass Styling */}
       < Toaster
